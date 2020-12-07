@@ -123,16 +123,19 @@ public class IntGraphMatrix extends IntGraph {
 		}
 		return degree;
 	}
+
 	public int getNumEdges() {
-		int edges=0;
-			for(int i =0; i<getNumVertices();i++) {
-				for(int j =0; i<getNumVertices();i++) {
-				if(adjMatrix[i][j]) {
+		int edges = 0;
+		int length = getNumVertices();
+		for (int i = 0; i < length; i++) {
+			for (int j = 0; j < length; j++) {
+				if (adjMatrix[i][j]) {
 					edges++;
 				}
-				}	
 			}
-		return edges/2;
+		}
+		int hi=edges;
+		return edges / 2;
 	}
 
 	private void checkVertex(int v) {
