@@ -47,7 +47,7 @@ public class BFSTree {
 	}
 	
 	public int getDistanceTo(int v) {
-		if(graph.getVertices().contains(v)) {
+		if(graph.hasVertex(v)) {
 			return distances.get(v);
 		}
 		else return -1;
