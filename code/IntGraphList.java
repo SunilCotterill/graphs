@@ -132,14 +132,15 @@ public class IntGraphList extends IntGraph {
         	return i;
     }
     
-    public int numEdges() {
+    public int getNumEdges() {
     	int edges=0;
     	for (Integer v: adjacencyList.keySet()) {
     		for (Integer test: adjacencyList.get(v)) {
     			edges++;
     		}
-    	}
-    	return (edges-getNumVertices())/2;
+
+        }
+    	return (edges)/2;
     }
     
     /**
