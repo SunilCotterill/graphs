@@ -10,7 +10,7 @@ import java.util.TreeMap;
  * lists for each vertex.
  * 
  * @author Mark Hancock
- * @author <your name can go here>
+ * @author <Sunil Cotterill>
  */
 public class IntGraphList extends IntGraph {
     /**
@@ -130,6 +130,16 @@ public class IntGraphList extends IntGraph {
         }
         
         	return i;
+    }
+    
+    public int numEdges() {
+    	int edges=0;
+    	for (Integer v: adjacencyList.keySet()) {
+    		for (Integer test: adjacencyList.get(v)) {
+    			edges++;
+    		}
+    	}
+    	return (edges-getNumVertices())/2;
     }
     
     /**
