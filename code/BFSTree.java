@@ -33,7 +33,7 @@ public class BFSTree {
 		q.add(source);
 		while (!q.isEmpty()) {
 			int u = q.remove();
-			for (int v : adjacencyList.get(u)) {
+			for (int v : graph.getAdjacencyList(u)) {
 
 				if (distances.get(v) == -1) {
 
@@ -44,6 +44,13 @@ public class BFSTree {
 			}
 		}
 
+	}
+	
+	public int getDistanceTo(int v) {
+		if(graph.getVertices().contains(v)) {
+			return distances.get(v);
+		}
+		else return -1;
 	}
 // TODO: implement getDistanceTo method
 }
