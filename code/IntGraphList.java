@@ -121,10 +121,15 @@ public class IntGraphList extends IntGraph {
         return adjacencyList.containsKey(v);
     }
 
-    public void getDegree(int v){
+    public int getDegree(int v){
         checkVertex(v);
         LinkedList<Integer> adjacencies =adjacencyList.get(v);
+        int i=0;
+        for(Integer test : adjacencies) {
+        	i++;
+        }
         
+        	return i;
     }
     
     /**
