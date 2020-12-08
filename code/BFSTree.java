@@ -6,30 +6,21 @@ import java.util.Queue;
 public class BFSTree {
 	private IntGraph graph;
 	private int source;
-	private Map<Integer, Integer> distances = new HashMap<>(); // vertices to
-																// integers
-	private Map<Integer, Integer> parents = new HashMap<>();
-	// TODO: consider what fields you might want
-	// Hint: probably not (just) a graph and source vertex
-
-	// TODO: implement constructor
-	BFSTree(IntGraph graph, int source) {
+	private Map<Integer, Integer> distances;
+	private Map<Integer, Integer> parents;
+	
+	public BFSTree(IntGraph graph, int source) {
 		this.graph = graph;
 		this.source = source;
-		BFS();
-	}
-
-	private void BFS() {
-		
-		for (int node : graph.getVertices()) {
-			// for every vertex
+        distances = new HashMap<>();
+        parents = new HashMap<>(); 
+        for (int node : graph.getVertices()) {
 			distances.put(node, -1);
-			// initialize distance and parent
 			parents.put(node, null);
 		}
 		
 		Queue<Integer> q = new LinkedList<>();
-		this.distances.put(source, 0);
+		distances.put(source, 0);
 		q.add(source);
 		while (!q.isEmpty()) {
 			int u = q.remove();
@@ -43,14 +34,14 @@ public class BFSTree {
 				}
 			}
 		}
-
+		
 	}
 	
 	public int getDistanceTo(int v) {
-		if(graph.hasVertex(v)) {
+		if (distances.containsKey(v)) {
 			return distances.get(v);
+		} else {
+			return -1;
 		}
-		else return -1;
 	}
-// TODO: implement getDistanceTo method
 }
