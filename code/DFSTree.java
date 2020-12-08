@@ -18,9 +18,9 @@ public class DFSTree {
 		visited = new HashSet<>();
 		parents = new HashMap<>();
 
-		for (int v : graph.getVertices()) {
-			dfsVisit(v, visited, parents);
-		}
+		
+			dfsVisit(source, visited, parents);
+		
 	}
 
 	private void dfsVisit(int v, Set<Integer> visited,
@@ -29,7 +29,7 @@ public class DFSTree {
 		for (int u : graph.getAdjacencyList(v)) {
 			if (!visited.contains(u)) {
 				parents.put(u, v);
-				dfsVisit(v, visited, parents);
+				dfsVisit(u, visited, parents);
 			}
 		}
 	}
